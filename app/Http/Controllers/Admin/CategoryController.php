@@ -138,7 +138,9 @@ class CategoryController extends Controller
                 return abort(404);
             }
 
-            $category -> update($request -> all());
+            $category -> update([
+                'name' => $request->name
+            ]);
 
             if ($category) {
                 return response()->json([
