@@ -1,0 +1,32 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Fontawesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/v4-shims';
+
+// Filepond
+@import "~filepond/dist/filepond.min.css";
+@import '~filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+@import '~filepond-plugin-media-preview/dist/filepond-plugin-media-preview.min.css';
+
+// Global
+@import 'global';
+
+// Scroll To Top
+@import 'scrollToTop';
+
+// Navbar
+@import 'navbar';
+
+// Navbar
+@import 'pages/messages';

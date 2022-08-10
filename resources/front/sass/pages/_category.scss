@@ -1,0 +1,18 @@
+main.category-page{
+    section.category-news {
+            a.card-target {
+                text-decoration: none;
+                color: #000;
+
+                .card {
+                    transition: all .2s ease-in-out;
+                }
+
+                &:hover {
+                    .card {
+                        transform: scale(1.04);
+                    }
+                }
+            }
+        }
+}

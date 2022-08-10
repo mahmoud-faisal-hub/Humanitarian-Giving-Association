@@ -1,0 +1,57 @@
+aside.side-links {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 9999;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 65px;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+
+            li {
+                padding: 25px 15px;
+                display: flex;
+                justify-content: center;
+                width: 80%;
+                margin-right: auto;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    width: 100%;
+                    border-radius: 0 5px 5px 0 !important;
+                }
+
+                &.facebook {
+                    background-color: #2374E1;
+
+                    &:hover {
+                        background-color: #194DA8;
+                    }
+                }
+
+                &.youtube {
+                    background-color: #FF0000;
+
+                    &:hover {
+                        background-color: #C41717;
+                    }
+                }
+            }
+
+            &:first-of-type li {
+                border-radius: 0 5px 0 0;
+            }
+
+            &:last-of-type li {
+                border-radius: 0 0 5px 0;
+            }
+        }
+    }
+}

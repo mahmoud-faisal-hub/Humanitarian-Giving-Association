@@ -1,0 +1,282 @@
+main.home-page {
+    section {
+        padding: 60px 0;
+    }
+
+    // Start Home Section
+    section.home {
+        background-image: url('../../images/homePage/Help.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 0;
+
+        .overlay {
+            background-color: #0005;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            h1 {
+                padding: 0 15px 10px;
+                margin-bottom: 20px;
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                font-size: 40px;
+
+                &::before {
+                    @include underline(#f8fafc);
+                }
+
+                &::after {
+                    @include triangle-border-arrow-down(#f8fafc, 10px);
+                    bottom: -13px;
+                }
+            }
+
+            p {
+                color: #eee;
+            }
+
+            span {
+                position: absolute;
+                bottom: 30px;
+                @keyframes arrow-down-up {
+                    0% {
+                        transform: translateY(0);
+                    }
+
+                    25% {
+                        transform: translateY(5px);
+                    }
+
+                    75% {
+                        transform: translateY(-5px);
+                    }
+
+                    100% {
+                        transform: translateY(0);
+                    }
+                }
+                animation: arrow-down-up 1.5s linear infinite;
+                color: #ccc;
+                //transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    // Start About Us Section
+    section.about-us {
+        position: relative;
+
+        &::after {
+            @include triangle-border-arrow-down;
+        }
+
+        .header{
+
+            h1 {
+                display: inline-block;
+
+                &::after{
+                    @include underline(#000, -13px, 50%);
+                }
+            }
+        }
+
+        a.btn {
+            background-color: $main-color;
+            border-color: $main-color;
+
+            &:hover {
+                background-color: $success;
+                border-color: $success;
+            }
+        }
+    }
+    // End About Us Section
+
+    // Start Latest News Section
+    section.latest-news {
+        position: relative;
+        background-color: #EDEDED;
+
+        &::after {
+            @include triangle-border-arrow-down(#EDEDED);
+        }
+
+        .header {
+
+            h1 {
+                display: inline-block;
+                position: relative;
+
+                &::after {
+                    @include underline(#000, -13px, 50%);
+                }
+            }
+        }
+
+        .carousel {
+            box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 34%);
+            -webkit-box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 34%);
+            -moz-box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.34);
+
+            .carousel-indicators {
+                align-items: center;
+
+                button {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    margin-left: 7px;
+                    margin-right: 7px;
+                    cursor: pointer;
+
+                    &.active {
+                        width: 13px;
+                        height: 13px;
+                        border: 1px solid #FFF;
+                        background-color: $main-color;
+                    }
+                }
+            }
+
+            .carousel-inner {
+
+                .carousel-item {
+
+                    img {
+                        max-height: 650px;
+                    }
+
+                    .carousel-caption {
+                        background-color: #000A;
+                        border-radius: 5px;
+                        margin-bottom: 35px;
+                    }
+                }
+            }
+        }
+
+        .card {
+            box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.34);
+            -webkit-box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.34);
+            -moz-box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.34);
+            border: none;
+
+            .card-body {
+
+                a.card-target {
+                    text-decoration: none;
+                    color: #000;
+                    .card {
+                        transition: all .2s ease-in-out;
+                    }
+
+                    &:hover {
+                        .card {
+                            transform: scale(1.04);
+                        }
+                    }
+                }
+            }
+
+            .card-footer {
+                color: #fff !important;
+                background-color: $success;
+                border-color: $success;
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    color: #fff;
+                    background-color: $green-600;
+                    border-color: $green-600;
+                }
+            }
+        }
+    }
+    // End Latest News Section
+
+    // Start Contact Us Section
+    section.contact-us {
+        background-image: url('../../images/homePage/Help_2.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        padding: 0;
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(2, 2, 2, .85);
+            color: #DDD;
+            padding: 60px 0;
+
+            .header {
+
+                i {
+                    display: block;
+                    font-size: 70px;
+                    margin-bottom: 20px;
+                }
+
+                h1 {
+                    display: inline-block;
+                    position: relative;
+
+                    &::after {
+                        @include underline(#DDD, -13px, 50%);
+                    }
+                }
+            }
+
+            .contact-form {
+
+                form {
+
+                    .form-group {
+                        margin-bottom: 1rem;
+
+                        .form-control  {
+                            background-color: rgba(82, 78, 78, 0.7) !important;
+                            color: #FFF;
+                            border: none;
+                            font-size: 1.25rem;
+                            text-align: right;
+                        }
+
+                        textarea {
+                            height: 103px;
+                        }
+                    }
+
+                    button.btn {
+                        font-size: 1.25rem;
+                        width: 100%;
+                        padding: 5px 12px;
+                        background-color: $main-color;
+                        border-color: $main-color;
+
+                        &:hover {
+                            background-color: $success;
+                            border-color: $success;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // End Contact Us Section
+}

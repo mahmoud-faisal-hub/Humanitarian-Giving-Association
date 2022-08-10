@@ -1,0 +1,35 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$main-color: #4caf50;
+$secendary-color: #3AC47D;
+
+$main-colors: (
+    '100': #E7FBDE,
+    '200': #CBF7BF,
+    '300': #A3E798,
+    '400': #7BCF77,
+    '500': #4CAF50,
+    '600': #379643,
+    '700': #267D39,
+    '800': #18652F,
+    '900': #0E532A
+);
+
+$secendary-colors: (
+    '100': #D8FCDB,
+    '200': #B2F9BF,
+    '300': #89EDA5,
+    '400': #67DB94,
+    '500': #3AC47D,
+    '600': #2AA874,
+    '700': #1D8D69,
+    '800': #12715D,
+    '900': #0B5E54
+);

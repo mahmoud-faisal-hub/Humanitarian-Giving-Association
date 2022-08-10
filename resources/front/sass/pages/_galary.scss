@@ -1,0 +1,30 @@
+main.galary-page {
+
+    .galary-files {
+
+        .show-file-modal {
+            position: relative;
+
+            video {
+
+                & + i {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    color: #fff;
+                    font-size: 45px;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        color: $main-color;
+                    }
+                }
+
+                &:hover + i {
+                    color: $main-color;
+                }
+            }
+        }
+    }
+}

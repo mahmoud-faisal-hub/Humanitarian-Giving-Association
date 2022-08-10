@@ -1,0 +1,105 @@
+header {
+
+    nav.top-nav {
+        background-color: $secendary-color;
+        transition: background-color 0.3s ease-in-out;
+        z-index: 9999;
+        font-size: 15px;
+        color: #fff;
+        overflow: hidden;
+
+        @media (max-width: 991px) {
+            & {
+                display: none;
+            }
+        }
+
+        .navbar-brand {
+            width: 150px;
+
+            @media (max-width: 991px) {
+                & {
+                    width: 110px;
+                }
+            }
+        }
+
+        form {
+            display: flex;
+            flex-basis: min-content;
+            justify-content: flex-end;
+
+            @media (max-width: 991px) {
+                flex-grow: 1;
+            }
+
+            input {
+                width: 300px;
+                border-radius: 0 0.25rem 0.25rem 0;
+                transition: all 0.3s ease-in-out;
+
+                @media (min-width: 992px) and (max-width: 1199px) {
+                    & {
+                        width: 250px;
+                    }
+                }
+
+                @media (max-width: 991px) {
+                    & {
+                        width: 100%;
+                    }
+                }
+            }
+
+            button {
+                border-radius: 0.25rem 0 0 0.25rem;
+            }
+        }
+    }
+
+    nav.pagination-nav {
+        background-color: $main-color;
+        transition: all 0.3s ease-in-out;
+        z-index: 9999;
+        font-size: 15px;
+
+        .navbar-brand {
+            width: 110px;
+        }
+
+        .collapse {
+
+            .navbar-nav {
+                padding: 0;
+                width: 100%;
+                justify-content: space-between;
+
+                .nav-item {
+                    padding: auto 3px;
+
+                    .nav-link {
+                        color: #fff;
+
+                        &:hover {
+                            color: #fffa;
+                        }
+                    }
+                }
+            }
+
+            form {
+                display: flex;
+
+                input {
+                    width: 100%;
+                    border-radius: 0 0.25rem 0.25rem 0;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                button {
+                    border-radius: 0.25rem 0 0 0.25rem;
+                }
+            }
+        }
+    }
+}

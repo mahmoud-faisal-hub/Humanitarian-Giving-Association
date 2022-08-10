@@ -1,0 +1,72 @@
+section.messages {
+
+    .card-target {
+        $g: &;
+        color: #000;
+        text-decoration: none;
+
+        .card {
+            $p: &;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            border-right: 1px solid rgba(0, 0, 0, 0.125);
+            border-left: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0;
+            background-color: #fff;
+            color: #6c757d;
+
+            &.unread {
+                background-color: rgba(0, 0, 0, 0.05);
+                font-weight: bold;
+                color: #000;
+            }
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.075);
+            }
+
+            .card-body {
+                padding: 0.5rem;
+
+                .header {
+                    display: flex;
+                    justify-content: space-between;
+
+                    h5 {
+                        margin: 0;
+                    }
+                }
+
+                p {
+                    margin-bottom: 0.1rem;
+
+                    small {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+
+        &:first-of-type {
+
+            .card {
+                border-top: 1px solid rgba(0, 0, 0, 0.125);
+                border-radius: 0.25rem 0.25rem 0 0;
+            }
+        }
+
+        &:last-of-type {
+
+            .card {
+                border-radius: 0 0 0.25rem 0.25rem;
+            }
+        }
+
+        &:only-of-type {
+
+            .card {
+                border-radius: 0.25rem;
+            }
+        }
+    }
+}

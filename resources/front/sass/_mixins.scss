@@ -1,0 +1,27 @@
+// Mixins
+@mixin underline($color: #000, $bottom: -3px, $width: 60%, $border-width: 3px, $radius: 10px, $align: center) {
+    content: "";
+    position: absolute;
+    bottom: $bottom;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 1px;
+    width: $width;
+    border-bottom: $border-width solid $color;
+    text-align: $align;
+    border-radius: $radius;
+}
+
+@mixin triangle-border-arrow-down($color: #fff, $border-width: 20px) {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: $border-width solid transparent;
+    border-right: $border-width solid transparent;
+    border-top: $border-width solid $color;
+    bottom: $border-width * -1;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 9;
+}

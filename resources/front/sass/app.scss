@@ -1,0 +1,41 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/v4-shims';
+
+//Minins
+@import 'mixins';
+
+// Global
+@import 'global';
+
+// Navbar
+@import 'navbar';
+
+// Side Links
+@import 'side-links';
+
+// Footer
+@import 'footer';
+
+// Scroll To Top
+@import 'scrollToTop';
+
+// Home Page
+@import 'pages/home';
+
+// Category Page
+@import 'pages/category';
+
+// Galary Page
+@import 'pages/galary';
