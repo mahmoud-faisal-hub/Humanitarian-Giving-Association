@@ -35,11 +35,13 @@
         /* block images */
         max-width: 80%;
         margin: 20px auto;
+        min-height: auto;
     }
 
     figure.highlight {
         text-align: left;
     }
+
 </style>
 
 <!---CKeditor JS-->
