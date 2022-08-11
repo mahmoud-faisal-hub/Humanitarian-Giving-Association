@@ -311,6 +311,10 @@ class AdminController extends Controller
                 return abort(404);
             }
 
+            if ($admin->info && $admin->info->image && Storage::disk('public')->exists('images/admins/' . $admin->info->image)) {
+                Storage::disk('public')->delete('images/admins/' . $admin->info->image);
+            }
+
             $admin -> delete();
 
             if ($admin) {
