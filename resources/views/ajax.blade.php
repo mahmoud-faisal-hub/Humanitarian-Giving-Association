@@ -42,7 +42,8 @@
         $("[id$=_error]").fadeOut(600);
         $("input").removeClass("is-invalid");
 
-        var current = $(this).find("[type='submit']:last").html();
+        var submitButton = $(this).find("[type='submit']:last")
+        var current = submitButton.html();
 
         var formData = new FormData(this);
         // formData.append('key', 'value');
@@ -58,14 +59,14 @@
             type: method,
             enctype: 'multipart/form-data',
             beforeSend: function() {
-                $("[type='submit']:last").html(
+                submitButton.html(
                     '<i class="fa fa-circle-o-notch fa-spin fa-lg"></i>');
                 if (typeof ajaxBeforeSent === "function") {
                     ajaxBeforeSent();
                 }
             },
             complete: function() {
-                $("[type='submit']:last").html(current);
+                submitButton.html(current);
                 if (typeof ajaxComplete === "function") {
                     ajaxComplete();
                 }
@@ -106,7 +107,11 @@
                 }
             },
             error: function(response) {
+                submitButton.html(current);
                 console.log(response.status);
+                if (response.status == 419) {
+                    alert('إنتهت صلاحية الصفحة الرجاء قم بإعادة تحميل الصفحة مرة أخرى');
+                }
                 var fisrtError = Object.keys(response.responseJSON.errors)[0];
                 // $("#error").hide().text(response.responseJSON.errors[fisrtError][0]).fadeIn(600);
                 $.each(response.responseJSON.errors, function(key, val) {
