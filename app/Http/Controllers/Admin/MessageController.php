@@ -123,12 +123,14 @@ class MessageController extends Controller
                 $query->where('admin_id', Auth()->id());
             }])->orderBy('created_at', 'desc')->where($table, 'LIKE', '%' . request()->get("search") . '%')->paginate(15);
 
-            if (!$messages) {
+            $usereadCount = Message::count() - MessageReader::where('admin_id', Auth::id())->count();
+
+            if (!$messages || !$usereadCount) {
                 return abort(404);
             }
 
             // return $category;
-            return view('admin.messages.index', compact('messages'));
+            return view('admin.messages.index', compact('messages', 'usereadCount'));
         } else {
             abort(401);
         }

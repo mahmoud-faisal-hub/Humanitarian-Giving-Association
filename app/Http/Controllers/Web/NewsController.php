@@ -37,7 +37,8 @@ class NewsController extends Controller
     public function search()
     {
         // return "";
-        $news = News::select(['id', 'image', 'title', 'content', 'created_at'])->where('title', 'LIKE', '%' . request()->get("search") . '%')->orderBy('created_at', 'desc')->paginate(40);
+        //$news = News::select(['id', 'image', 'title', 'content', 'created_at'])->where('title', 'LIKE', '%' . request()->get("search") . '%')->orWhere('content', 'LIKE', '%' . request()->get("search") . '%')->orderBy('created_at', 'desc')->paginate(40);
+        $news = News::select(['id', 'image', 'title', 'content', 'created_at'])->search(request()->get("search"), ['title', 'content', 'article'])->paginate(40);
         return view('web.news.search', compact('news'));
     }
 }

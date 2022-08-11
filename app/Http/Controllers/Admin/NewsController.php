@@ -245,7 +245,7 @@ class NewsController extends Controller
                                 'user:id,name',
                                 'category:id,name'
                             ])
-                            ->where('title', 'LIKE', '%' . request()->get("search") . '%')
+                            ->search(request()->get("search"), ['title', 'content', 'article'])
                             ->orderBy('created_at', 'desc')
                             ->paginate(15);
 

@@ -350,7 +350,7 @@ class AdminController extends Controller
                                             ])->whereDoesntHave('roles', function ($query) {
                                                 $query->where('name', 'Super Admin');
                                             })
-                                            ->where('email', 'LIKE', '%' . request()->get("search") . '%')
+                                            ->search(request()->get("search"), ['name', 'email'])
                                             ->paginate(15);
 
             if (!$admins) {
