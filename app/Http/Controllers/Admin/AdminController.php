@@ -133,7 +133,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::user()->canAny(['تعيين دور', 'تعيين صلاحية'])) {
+        if (Auth::user()->canAny(['تعيين دور', 'تعيين صلاحية']) && Auth::id() != $id) {
             $admin = Admin::select(['id'])->with('roles:id', 'permissions:id')->find($id);
             $roles = Role::where('name', '!=', 'Super Admin')->get();
             $permissions = Permission::get();

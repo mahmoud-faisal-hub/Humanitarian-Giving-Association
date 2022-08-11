@@ -151,11 +151,11 @@
                                                         @endcan
                                                     </a>
                                                 @endcan
-                                                @canany(['تعيين دور', 'تعيين صلاحية'])
+                                                @if(Auth::user()->canAny(['تعيين دور', 'تعيين صلاحية']) && Auth::id() != $admin->id)
                                                     <a href="{{ route('admin.edit', $admin->id) }}" class="btn btn-sm btn-info">
                                                         <i class="fa-solid fa-lock"></i>
                                                     </a>
-                                                @endcanany
+                                                @endif
                                                 @if (Auth::user()->can('حذف عضو') && Auth::id() != $admin->id)
                                                     <button type="button" class="btn btn-sm btn-danger" id="delete-admin-confirm"
                                                         data-bs-toggle="modal" data-bs-target="#delete-admin"
