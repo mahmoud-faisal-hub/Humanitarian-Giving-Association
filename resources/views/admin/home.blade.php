@@ -189,17 +189,17 @@
 
     @canany(['عرض إحصائيات الأخبار', 'عرض إحصائيات الأقسام', 'عرض إحصائيات المعرض', 'عرض إحصائيات الرسائل', 'عرض إحصائيات الأعضاء'])
         <!-- row opened -->
-        <div class="row row-sm">
-            <div class="col-12">
+        <div class="row row-sm row-deck">
+            <div class="d-none d-lg-flex col-md-12 col-lg-12 col-xl-7">
                 <div class="card">
                     <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
                         <div class="d-flex justify-content-between">
-                            <h4 class="card-title mb-0">الإحصائيات</h4>
+                            <h4 class="card-title mb-0">إحصائيات الإضافة</h4>
                         </div>
-                        <p class="tx-12 text-muted mb-0">عرض مخطط الإحصائيات</p>
+                        <p class="tx-12 text-muted mb-0">عرض مخطط إحصائيات الإضافة لأخر {{ arabicNumbers('12') }} شهر</p>
                     </div>
                     <div class="card-body">
-                        <div class="total-revenue">
+                        <div class="total-revenue flex-wrap border-bottom-0">
                             @can('عرض إحصائيات الأخبار')
                                 <div>
                                     <label><span class="bg-primary"></span>الأخبار</label>
@@ -227,7 +227,49 @@
                             @endcan
                         </div>
                         <div class="mt-5" style="width:100%;">
-                            {!! $chartjs->render() !!}
+                            {!! $statsBarChart->render() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-lg-flex col-lg-12 col-xl-5">
+                <div class="card">
+                    <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mb-0">إحضائيات الأعداد</h4>
+                        </div>
+                        <p class="tx-12 text-muted mb-0">عرض مخطط إحصائى للمقارنة بين أعداد العناصر فى الجداول وبعضها</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="total-revenue flex-wrap border-bottom-0">
+                            @can('عرض إحصائيات الأخبار')
+                                <div>
+                                    <label><span class="bg-primary"></span>الأخبار</label>
+                                </div>
+                            @endcan
+                            @can('عرض إحصائيات الأقسام')
+                                <div>
+                                    <label><span class="bg-danger"></span>الأقسام</label>
+                                </div>
+                            @endcan
+                            @can('عرض إحصائيات المعرض')
+                                <div>
+                                    <label><span class="bg-success"></span>المعرض</label>
+                                </div>
+                            @endcan
+                            @can('عرض إحصائيات الرسائل')
+                                <div>
+                                    <label><span class="bg-orange"></span>الرسائل</label>
+                                </div>
+                            @endcan
+                            @can('عرض إحصائيات الأعضاء')
+                                <div>
+                                    <label><span class="bg-secondary"></span>الأعضاء</label>
+                                </div>
+                            @endcan
+                        </div>
+                        <div class="mt-5" style="width:100%;">
+                            {!! $statsPieChart->render() !!}
                         </div>
                     </div>
                 </div>
