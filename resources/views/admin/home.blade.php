@@ -187,6 +187,55 @@
     </div>
     <!-- row closed -->
 
+    @canany(['عرض إحصائيات الأخبار', 'عرض إحصائيات الأقسام', 'عرض إحصائيات المعرض', 'عرض إحصائيات الرسائل', 'عرض إحصائيات الأعضاء'])
+        <!-- row opened -->
+        <div class="row row-sm">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title mb-0">الإحصائيات</h4>
+                        </div>
+                        <p class="tx-12 text-muted mb-0">عرض مخطط الإحصائيات</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="total-revenue">
+                            @can('عرض إحصائيات الأخبار')
+                                <div>
+                                    <label><span class="bg-primary"></span>الأخبار</label>
+                                </div>
+                            @endcan
+                            @can('عرض إحصائيات الأقسام')
+                                <div>
+                                    <label><span class="bg-danger"></span>الأقسام</label>
+                                </div>
+                            @endcan
+                            @can('عرض إحصائيات المعرض')
+                                <div>
+                                    <label><span class="bg-success"></span>المعرض</label>
+                                </div>
+                            @endcan
+                            @can('عرض إحصائيات الرسائل')
+                                <div>
+                                    <label><span class="bg-orange"></span>الرسائل</label>
+                                </div>
+                            @endcan
+                            @can('عرض إحصائيات الأعضاء')
+                                <div>
+                                    <label><span class="bg-secondary"></span>الأعضاء</label>
+                                </div>
+                            @endcan
+                        </div>
+                        <div class="mt-5" style="width:100%;">
+                            {!! $chartjs->render() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row closed -->
+    @endcanany
+
     <!-- row opened -->
     <div class="row row-sm row-deck">
         @can('عرض الأخبار')
@@ -690,6 +739,8 @@
     <!--Internal  index js -->
     <script src="{{ URL::asset('assets/js/index.js') }}"></script>
     <script src="{{ URL::asset('assets/js/jquery.vmap.sampledata.js') }}"></script>
+    <!--Internal  Chart.bundle js -->
+    <script src="{{URL::asset('assets/plugins/chart.js/Chart.bundle.min.js')}}"></script>
     <!--Internal  Datepicker js -->
     <script src="{{URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
     <!-- Internal Select2 js-->
@@ -709,6 +760,7 @@
     <!--Internal  Notify js -->
     <script src="{{URL::asset('assets/plugins/notify/js/notifIt.js')}}"></script>
     <script src="{{URL::asset('assets/plugins/notify/js/notifit-custom.js')}}"></script>
+
 
     {{-- Show File Modal Config --}}
     <script>

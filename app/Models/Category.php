@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ChartTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, ChartTrait;
 
 
     protected $table = "categories";
