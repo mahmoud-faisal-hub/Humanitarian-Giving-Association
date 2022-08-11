@@ -141,12 +141,14 @@
                                         </td>
                                         <td class="tx-medium tx-inverse align-middle">{{ arabicDate(arabicNumbers($admin->created_at->format('D، j M Y ~ g:i a'))) }}</td>
                                         <td class="tx-medium tx-inverse align-middle">{{ arabicDate(arabicNumbers($admin->updated_at->format('D، j M Y ~ g:i a'))) }}</td>
-                                        @canany(['عرض الأعضاء', 'تعديل عضو', 'حذف عضو'])
+                                        @canany(['عرض الأعضاء', 'تعديل عضو', 'تعيين دور', 'تعيين صلاحية', 'حذف عضو'])
                                             <td class="align-middle text-center">
                                                 @can('عرض الأعضاء')
                                                     <a href="{{ route('admin.show', $admin->id) }}" class="btn btn-sm btn-primary">
                                                         <i class="las la-search"></i>
-                                                        <i class="las la-pen"></i>
+                                                        @can('تعديل عضو')
+                                                            <i class="las la-pen"></i>
+                                                        @endcan
                                                     </a>
                                                 @endcan
                                                 @canany(['تعيين دور', 'تعيين صلاحية'])
@@ -154,13 +156,13 @@
                                                         <i class="fa-solid fa-lock"></i>
                                                     </a>
                                                 @endcanany
-                                                @can('حذف عضو')
+                                                @if (Auth::user()->can('حذف عضو') && Auth::id() != $admin->id)
                                                     <button type="button" class="btn btn-sm btn-danger" id="delete-admin-confirm"
                                                         data-bs-toggle="modal" data-bs-target="#delete-admin"
                                                         data-action="{{ route('admin.destroy', $admin->id) }}" data-id="{{ $admin->id }}">
                                                         <i class="las la-trash"></i>
                                                     </button>
-                                                @endcan
+                                                @endif
                                             </td>
                                         @endcanany
                                     </tr>

@@ -304,8 +304,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::user()->can('حذف عضو')) {
-            $admin = Admin::find($id);
+        if (Auth::user()->can('حذف عضو') && Auth::id() != $id) {
+            $admin = Admin::with('info:id,image,admin_id')->find($id);
 
             if (!$admin) {
                 return abort(404);
