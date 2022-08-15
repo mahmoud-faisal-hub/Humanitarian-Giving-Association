@@ -32,6 +32,10 @@ class CategoryController extends Controller
 
         $category = Category::select(['id', 'name']) -> find($id);
 
+        if (!$category) {
+            return abort(404);
+        }
+
         $category->setRelation('news', $category->news()->select(['id', 'image', 'title', 'content', 'created_at'])->orderBy('created_at', 'desc')->paginate(40));
 
         if (!$category) {

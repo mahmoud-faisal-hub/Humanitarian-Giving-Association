@@ -119,6 +119,10 @@ class AdminController extends Controller
         if (Auth::user()->can('عرض الأعضاء') || Auth::id() == $id) {
             $admin = Admin::select(['id', 'name', 'email', 'status'])->withCount('news')->with('info')->find($id);
 
+            if (!$admin) {
+                abort(401);
+            }
+
             return view('admin.admin.show', compact('admin'));
         } else {
             abort(401);

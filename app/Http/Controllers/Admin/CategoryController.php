@@ -84,6 +84,10 @@ class CategoryController extends Controller
             // $category = Category::with("news.user") -> find($id);
 
             $category = Category::select(['id', 'name'])->find($id);
+            if (!$category) {
+                abort(404);
+            }
+
             $category->setRelation('news', $category->news()->select(['id', 'image', 'title', 'content', 'created_by', 'created_at', 'updated_at'])->orderBy('created_at', 'desc')->with('user', function ($query) {
                 $query->select(['id', 'name']);
             })->paginate(15));
