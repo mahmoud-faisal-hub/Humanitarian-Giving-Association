@@ -61,7 +61,7 @@
                     مجال العمل الرئيسى : خدمات ثقافية وعلمية
                 </p>
                 <div>
-                    <a href="#" id="test" class="btn btn-success btn-lg">تواصل معنا</a>
+                    <a href="{{ route('web.contact.index') }}" id="test" class="btn btn-success btn-lg">تواصل معنا</a>
                 </div>
             </div>
         </section>
